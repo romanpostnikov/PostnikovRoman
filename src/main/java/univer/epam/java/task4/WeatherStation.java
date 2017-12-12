@@ -2,35 +2,41 @@ package univer.epam.java.task4;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import univer.epam.java.task4.view.CurrentConditionsDisplay;
+import org.jsoup.nodes.Element;
 
 import java.io.IOException;
 
+import static java.lang.Float.parseFloat;
+import static java.lang.Integer.parseInt;
+
 public class WeatherStation {
+
     public static void main(String[] args) {
         WeatherData weatherData = new WeatherData();
-
-        CurrentConditionsDisplay currentDisplay = new CurrentConditionsDisplay(weatherData);
-        //StatisticsDisplay statisticsDisplay = new StatisticDisplay(weatherData);
-        //ForecastDisplay forecastDisplay = new ForecastDisplay(weatherData);
-
         try {
-            String addr = "http://samples.openweathermap.org/data/2.5/weather?q=London&mode=xml&appid=b1b15e88fa797225412429c1c50c122a1";
-            Document doc = Jsoup.connect(addr).get();
-            //IOException
+            Document doc = Jsoup.connect("http://samples.openweathermap.org/data/2.5/weather?q=London&mode=xml&appid=b6907d289e10d714a6e88b30761fae22")
+                    .get();
+            Element temperatureElement = doc.select("temperature").first();
+            Element humidityElement = doc.select("humidity").first();
+            Element pressureElement = doc.select("pressure").first();
+            Integer temperature = parseInt(temperatureElement.attr("value"));
+            Integer humidity = parseInt(humidityElement.attr("value"));
+            Float pressure = parseFloat(pressureElement.attr("value"));
 
-            //HttpURLConnection connection = (HttpURLConnection) addr.openConnection();
-            //connection.connect();
-            //IOException
-            //InputStream inputStream = connection.getInputStream();
-            //IOException
-            //Weather weather = weatherParser(inputStream);
-            //connection.disconnect();
+
+            CurrentConditionsDisplay currentConditions = new CurrentConditionsDisplay(weatherData);
+            StatisticsDisplay statisticsDisplay = new StatisticsDisplay(weatherData);
+            ForecastDisplay forecastDisplay = new ForecastDisplay(weatherData);
+
+            weatherData.setMeasurements(temperature, humidity, pressure);
+            weatherData.setMeasurements(temperature, humidity, pressure);
+            weatherData.setMeasurements(temperature, humidity, pressure);
+
+
         } catch (IOException e) {
-            System.out.println("Exception" + e.toString());
-
-
-            weatherData.setMeasurements(80, 35, 123);
+            System.out.println("IOException " + e.toString());
         }
+
+
     }
 }
