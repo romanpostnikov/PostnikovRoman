@@ -24,8 +24,8 @@ public class Polygon implements Figure {
         }
 
         return 0.5 * Math.abs(positiveResult + negativeResult +
-                inputPoints[n-1].getX() * inputPoints[1].getY() -
-                inputPoints[1].getX() * inputPoints[n-1].getY());
+                inputPoints[n-1].getX() * inputPoints[0].getY() -
+                inputPoints[0].getX() * inputPoints[n-1].getY());
 
     }
 

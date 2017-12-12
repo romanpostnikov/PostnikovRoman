@@ -9,14 +9,6 @@ public class ColorTriangle extends Triangle implements Figure {
         super(apexA, apexB, apexC);
     }
 
-    public double getTriangleArea(ColorPoint apexA, ColorPoint apexB, ColorPoint apexC) {
-        return super.getTriangleArea(apexA, apexB, apexC);
-    }
-
-    public double getTrianglePerimeter(ColorPoint apexA, ColorPoint apexB, ColorPoint apexC) {
-        return super.getTrianglePerimeter(apexA, apexB, apexC);
-    }
-
     @Override
     public String toString() {
         if (getTriangleArea(getApexA(), getApexB(), getApexC()) != 0) {
