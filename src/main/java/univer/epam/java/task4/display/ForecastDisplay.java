@@ -1,10 +1,15 @@
-package univer.epam.java.task4;
+package univer.epam.java.task4.display;
+
+import univer.epam.java.task4.ParseMeasurements;
+import univer.epam.java.task4.WeatherData;
 
 import java.util.Observable;
 import java.util.Observer;
 
 public class ForecastDisplay implements Observer, DisplayElement {
-	private float currentPressure = 29.92f;  
+
+	private ParseMeasurements weatherParse = new ParseMeasurements();
+	private float currentPressure = weatherParse.getPressure();
 	private float lastPressure;
 
 	public ForecastDisplay(Observable observable) {

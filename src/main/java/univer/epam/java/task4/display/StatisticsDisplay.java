@@ -1,11 +1,15 @@
-package univer.epam.java.task4;
+package univer.epam.java.task4.display;
+
+import univer.epam.java.task4.ParseMeasurements;
+import univer.epam.java.task4.WeatherData;
 
 import java.util.Observable;
 import java.util.Observer;
 
 public class StatisticsDisplay implements Observer, DisplayElement {
-	private float maxTemp = 0.0f;
-	private float minTemp = 200;
+	ParseMeasurements weatherParse = new ParseMeasurements();
+	private float maxTemp = weatherParse.getMaxTemperature();
+	private float minTemp = weatherParse.getMinTemperature();
 	private float tempSum= 0.0f;
 	private int numReadings;
 

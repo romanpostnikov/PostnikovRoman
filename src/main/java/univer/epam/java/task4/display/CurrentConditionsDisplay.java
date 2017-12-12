@@ -1,4 +1,6 @@
-package univer.epam.java.task4;
+package univer.epam.java.task4.display;
+
+import univer.epam.java.task4.WeatherData;
 
 import java.util.Observable;
 import java.util.Observer;
