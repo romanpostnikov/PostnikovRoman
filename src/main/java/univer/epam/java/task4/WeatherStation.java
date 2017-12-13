@@ -16,7 +16,7 @@ public class WeatherStation {
         ParseMeasurements weatherParse = new ParseMeasurements();
 
         weatherData.setMeasurements(weatherParse.getTemperature(), weatherParse.getHumidity(), weatherParse.getPressure());
-        weatherData.setMeasurements(weatherParse.getTemperature(), weatherParse.getHumidity(), weatherParse.getPressure());
-        weatherData.setMeasurements(weatherParse.getTemperature(), weatherParse.getHumidity(), weatherParse.getPressure());
+        weatherData.setMeasurements(weatherParse.getMinTemperature(), weatherParse.getHumidity(), weatherParse.getPressure());
+        weatherData.setMeasurements(weatherParse.getMaxTemperature(), weatherParse.getHumidity(), weatherParse.getPressure());
     }
 }
